@@ -38,7 +38,7 @@ resource "azurerm_sql_virtual_machine" "rd" {
   sql_server_id       = azurerm_sql_server.rd.id
   admin_username      = "rdadmin"
   admin_password      = "Tech@123"
-  
+
 # Specify the virtual machine configuration
   vm_size     = "Standard_B2ms"
   offer       = "sql2022-ws2022"
@@ -46,7 +46,7 @@ resource "azurerm_sql_virtual_machine" "rd" {
   sku         = "sqldev-gen2"
   version     = "latest"
   license_type = "PAYG"
-  
+
 
   storage_os_disk {
     name              = "rd-os-disk"
@@ -54,3 +54,4 @@ resource "azurerm_sql_virtual_machine" "rd" {
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
+
