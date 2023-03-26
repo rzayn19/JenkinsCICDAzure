@@ -1,4 +1,4 @@
-[200~provider "azurerm" {
+provider "azurerm" {
   features {}
 }
 
