@@ -10,29 +10,23 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                dir('terraform') {
                     sh 'terraform init'
                 }
-            }
         }
 
         stage('Terraform Plan') {
             steps {
-                dir('terraform') {
                     withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                         sh "terraform plan -var 'client_id=${env.AZURE_CLIENT_ID}' -var 'client_secret=${env.AZURE_CLIENT_SECRET}' -var 'subscription_id=${env.AZURE_SUBSCRIPTION_ID}' -var 'tenant_id=${env.AZURE_TENANT_ID}'"
                     }
                 }
-            }
         }
 
         stage('Terraform Apply') {
             steps {
-                dir('terraform') {
                     withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                         sh "terraform apply -auto-approve -var 'client_id=${env.AZURE_CLIENT_ID}' -var 'client_secret=${env.AZURE_CLIENT_SECRET}' -var 'subscription_id=${env.AZURE_SUBSCRIPTION_ID}' -var 'tenant_id=${env.AZURE_TENANT_ID}'"
                     }
-                }
 }
 }
 }
