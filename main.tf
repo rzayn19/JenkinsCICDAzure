@@ -55,3 +55,4 @@ resource "azurerm_sql_virtual_machine" "rd" {
     managed_disk_type = "Standard_LRS"
   }
 
+
