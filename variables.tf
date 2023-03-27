@@ -1,5 +1,5 @@
 variable "credentials" {
-   type=map
+   type = string
    default = {
   subscription_id = "5611a21a-1f28-4841-8d8f-8ef4add1359a"
   client_id       = "e5b62a78-db10-45f5-b147-805784ba4d62"
