@@ -4,7 +4,7 @@ provider "azurerm" {
   client_id       = "var.client_id"  
   client_secret   = "var.client_secret"
   tenant_id       = "var.tenant_id"
-  # redirect_uri    = "var.redirect_uri"
+  redirect_uri    = "var.redirect_uri"
 }
 
 resource "azurerm_resource_group" "rg" {
