@@ -1,10 +1,20 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source ="hashicorp/azurerm"
+      version ="=3.50.0"
+    }
+  }
+}
+
 provider "azurerm" {
   features {}
+  #version ="=1.4.4"
   subscription_id = "var.subscription_id"
-  client_id       = "var.client_id"  
+  client_id       = "var.client_id"
   client_secret   = "var.client_secret"
   tenant_id       = "var.tenant_id"
-  redirect_uri    = "var.redirect_uri"
+  #redirect_uris   = ["var.redirect_uri"]
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -30,7 +40,7 @@ resource "azurerm_subnet" "my_terraform_subnet" {
 
 # Create public IPs
 resource "azurerm_public_ip" "my_terraform_public_ip" {
-  name                = "prodrd-public-ip"
+ name                = "prodrd-public-ip"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"
