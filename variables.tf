@@ -14,6 +14,3 @@ variable "tenant_id" {
   description = "Tenan-id"
 }
 
-variable "redirect_uri" {
-  description = "Redirect-uri"
-}
