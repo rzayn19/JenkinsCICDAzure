@@ -9,12 +9,10 @@ terraform {
 
 provider "azurerm" {
   features {}
-  #version ="=1.4.4"
-  subscription_id = "var.subscription_id"
-  client_id       = "var.client_id"
-  client_secret   = "var.client_secret"
-  tenant_id       = "var.tenant_id"
-  #redirect_uris   = ["var.redirect_uri"]
+  subscription_id = var.subscription_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
 }
 
 resource "azurerm_resource_group" "rg" {
