@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    
+    environment {
+    TF_CLI_ARGS = "-no-color"
+     subscription_id = credentials('AZURE_CREDENTIALS')
+     client_id      = credentials('AZURE_CREDENTIALS')
+     client_secret  = credentials('AZURE_CREDENTIALS')
+      tenant_id     = credentials('AZURE_CREDENTIALS')
+}
 
     stages {
         stage('Checkout') {
